@@ -13,7 +13,7 @@ class Board
 
   def winner?(token, win_length)
     winning_conditions = [get_vertical_matches(token) + 1,
-                          get_left_matches(token) + get_right_matches(token) + 1, 
+                          get_left_matches(token) + get_right_matches(token) + 1,
                           get_negative_slope_left_diagonal_matches(token) + get_negative_slope_right_diagonal_matches(token) + 1, get_positive_slope_left_diagonal_matches(token) + get_positive_slope_right_diagonal_matches(token) + 1]
     winning_conditions.any? do |condition|
       condition >= win_length
@@ -70,7 +70,7 @@ class Board
       diagonals_to_get = columns_to_zero
     else
       diagonals_to_get = rows_to_top
-    end 
+    end
 
     diagonals_to_get.times do |difference|
       if @columns[token.column_number - difference - 1].slots[token.row_number + difference + 1].nil? || @columns[token.column_number - difference - 1].slots[token.row_number + difference + 1].symbol != token.symbol
@@ -103,12 +103,12 @@ class Board
     consecutive_matches = 0
     columns_to_zero = token.column_number
     rows_to_bottom = token.row_number
-    
+
     if columns_to_zero < rows_to_bottom
       diagonals_to_get = columns_to_zero
     else
       diagonals_to_get = rows_to_bottom
-    end 
+    end
 
     diagonals_to_get.times do |difference|
       if @columns[token.column_number - difference - 1].slots[token.row_number - difference - 1].nil? || @columns[token.column_number - difference - 1].slots[token.row_number - difference - 1].symbol != token.symbol
@@ -125,7 +125,7 @@ class Board
     consecutive_matches = 0
     columns_to_max = @width - token.column_number - 1
     rows_to_top = @height - token.row_number - 1
-    
+
     diagonals_to_get = columns_to_max < rows_to_top ? columns_to_max : rows_to_top
 
     diagonals_to_get.times do |difference|

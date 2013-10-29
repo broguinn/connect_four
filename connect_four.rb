@@ -8,6 +8,7 @@ def init
   puts "Welcome to Connect Four! How many people are playing?"
   players = gets.chomp.to_i
   @game = Game.new(players, 9, 7)
+  main
 end
 
 def main
@@ -47,7 +48,7 @@ def draw_board
       print " | "
     end
     puts ""
-    puts "====" * @game.board.width 
+    puts "====" * @game.board.width
   end
   @game.board.width.times do |time|
     print " #{time + 1}  "
@@ -56,4 +57,3 @@ def draw_board
 end
 
 init
-main
