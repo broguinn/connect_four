@@ -7,7 +7,7 @@ require './lib/token'
 def init
   puts "Welcome to Connect Four! How many people are playing?"
   players = gets.chomp.to_i
-  @game = Game.new(players, 9, 7)
+  @game = Game.new(players)
   main
 end
 

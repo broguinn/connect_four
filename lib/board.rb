@@ -1,7 +1,7 @@
 class Board
   attr_reader :columns, :height, :width
 
-  def initialize(width, height)
+  def initialize(width=9, height=7)
     @columns = []
     @height = height
     @width = width

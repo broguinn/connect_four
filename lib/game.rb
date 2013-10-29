@@ -1,7 +1,7 @@
 class Game
   attr_reader :players, :board, :current_player
 
-  def initialize(players, width, height)
+  def initialize(players, width=9, height=7)
     @possible_symbols = ["$", "*", "%", "&"]
     @players = []
     players.times do
